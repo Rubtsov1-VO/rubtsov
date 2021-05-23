@@ -3,7 +3,7 @@
 # DOCKER_EMAIL   - login info for docker hub
 # DOCKER_USER
 # DOCKER_PASS
-#
+# 1
 # Read the README for more information.
 machine:
   environment:

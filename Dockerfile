@@ -4,7 +4,7 @@ RUN adduser --gid 10001 --uid 10001 \
     --home /app --shell /sbin/nologin \
     --disabled-password app
 
-COPY bin/deployer /app/
+COPY deployer /app/
 RUN mkdir /app/deploymentTests
 ADD deploymentTests /app/deploymentTests/
 

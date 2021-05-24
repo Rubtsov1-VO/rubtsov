@@ -26,7 +26,7 @@ jobs:
           command: |
             go install --ldflags '-extldflags "-static"' github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME};
             [ ! -e bin ] && mkdir bin;
-            cp "${GOPATH_HEAD}/bin/rubcov" bin/invoicer;
+            cp "${GOPATH_HEAD}/bin/${CIRCLE_PROJECT_REPONAME}" bin/invoicer;
             docker build -t ${DOCKER_REPO}/rubcov .;
       - run:
           name: Run application in background

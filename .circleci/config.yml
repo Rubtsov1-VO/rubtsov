@@ -24,14 +24,14 @@ jobs:
       - run:
           name: Build application container
           command: |
-            go install --ldflags '-extldflags "-static"' github.com/${CIRCLE_PROJECT_USERNAME}/${CIRCLE_PROJECT_REPONAME};
+            go install --ldflags '-extldflags "-static"' github.com/${CIRCLE_PROJECT_USERNAME}/rubcov;
             [ ! -e bin ] && mkdir bin;
-            cp "${GOPATH_HEAD}/bin/${CIRCLE_PROJECT_REPONAME}" bin/invoicer;
-            docker build -t ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME} .;
+            cp "${GOPATH_HEAD}/bin/rubcov" bin/invoicer;
+            docker build -t ${DOCKER_REPO}/rubcov .;
       - run:
           name: Run application in background
           command: |
-            docker run ${DOCKER_REPO}/${CIRCLE_PROJECT_REPONAME}
+            docker run ${DOCKER_REPO}/rubcov
           background: true
 
       - run:
